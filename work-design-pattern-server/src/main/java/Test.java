@@ -1,6 +1,10 @@
-import simplefactory.factory.ChartFactory;
-import simplefactory.product.Chart;
-import simplefactory.utils.XMLUtil;
+import factorymethod.factory.LoggerFactory;
+import factorymethod.product.Logger;
+import org.xml.sax.SAXException;
+import utils.XMLUtil;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 
 /**
  * @Auther: allanyang
@@ -9,8 +13,11 @@ import simplefactory.utils.XMLUtil;
  */
 public class Test {
 
-    public static void main(String[] args) {
-        Chart chart = ChartFactory.getChart(XMLUtil.getChartType());
-        chart.display();
+    public static void main(String[] args) throws SAXException, IllegalAccessException, IOException, InstantiationException, ParserConfigurationException, ClassNotFoundException {
+        LoggerFactory factory;
+        Logger logger;
+        factory = (LoggerFactory) XMLUtil.getChartType();
+        logger = factory.createLogger();
+        logger.writeLog();
     }
 }
