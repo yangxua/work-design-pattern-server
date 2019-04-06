@@ -14,7 +14,6 @@ public abstract class LoggerFactory {
         logger.writeLog();
     }
 
-
     public abstract Logger createLogger();
     public abstract Logger createLogger(String args);
     public abstract Logger createLogger(Object obj);

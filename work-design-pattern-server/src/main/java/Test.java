@@ -1,5 +1,7 @@
-import factorymethod.factory.LoggerFactory;
-import factorymethod.product.Logger;
+import abstractfactory.abstractfactory.SkinFactory;
+import abstractfactory.abstractproduct.Button;
+import abstractfactory.abstractproduct.ComboBox;
+import abstractfactory.abstractproduct.TextField;
 import org.xml.sax.SAXException;
 import utils.XMLUtil;
 
@@ -14,10 +16,16 @@ import java.io.IOException;
 public class Test {
 
     public static void main(String[] args) throws SAXException, IllegalAccessException, IOException, InstantiationException, ParserConfigurationException, ClassNotFoundException {
-        LoggerFactory factory;
-        Logger logger;
-        factory = (LoggerFactory) XMLUtil.getChartType();
-        logger = factory.createLogger();
-        logger.writeLog();
+        SkinFactory factory;
+        Button bt;
+        TextField tf;
+        ComboBox cb;
+        factory = (SkinFactory)XMLUtil.getBean();
+        bt = factory.createButton();
+        tf = factory.createTextField();
+        cb = factory.createComboBox();
+        bt.display();
+        tf.display();
+        cb.display();
     }
 }
