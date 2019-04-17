@@ -1,9 +1,4 @@
-import aggregate.AbstractObjectList;
-import concreteaggregate.ProductList;
-import iterator.AbstractIterator;
-
-import java.util.ArrayList;
-import java.util.List;
+import context.Account;
 
 /**
  * @Auther: allanyang
@@ -13,29 +8,11 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        List products = new ArrayList();
-        products.add("倚天剑");
-        products.add("屠龙刀");
-        products.add("断肠草");
-        products.add("葵花宝典");
-        products.add("四十二章经");
-
-        AbstractObjectList list;
-        AbstractIterator iterator;
-        list = new ProductList(products);
-        iterator = list.createIterator();
-
-        System.out.println("正向便利");
-        while(!iterator.isLast()) {
-            System.out.print(iterator.getNextItem() + ",");
-            iterator.next();
-        }
-
-        System.out.println();
-        System.out.println("你想便利");
-        while(!iterator.isFirst()) {
-            System.out.print(iterator.getPreviousItem() + ",");
-            iterator.previous();
-        }
+        Account acc = new Account("段誉", 0.0);
+        acc.deposite(1000);
+        acc.withdraw(2000);
+        acc.deposite(3000);
+        acc.withdraw(4000);
+        acc.computeInterest();
     }
 }
