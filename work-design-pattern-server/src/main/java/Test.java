@@ -20,6 +20,7 @@ public class Test {
         ComponentDecorator decorator1 = new BlackBorderDecorator(listBox);
         ComponentDecorator decorator2 = new BlackBorderDecorator(window);
         ComponentDecorator decorator3 = new ScrollBarDecorator(textBox);
+
         decorator1.display();
         decorator2.display();
         decorator3.display();
